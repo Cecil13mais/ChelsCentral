@@ -123,7 +123,7 @@
         <img src="https://pbs.twimg.com/profile_images/1636292115914170368/zK72ElyB_400x400.jpg"
              alt="pys profile picture"
              class="profile-img"
-             onclick="showMessage('Pys')" />
+             onclick="showMessage('pys')" />
         <div class="profile-label">pys</div>
         <div class="click-tip">Click On Name</div>
       </div>
@@ -131,7 +131,7 @@
         <img src="https://pbs.twimg.com/profile_images/1687497425232015360/qpkICXmE_400x400.jpg"
              alt="conn profile picture"
              class="profile-img"
-             onclick="showMessage('Conn')" />
+             onclick="showMessage('conn')" />
         <div class="profile-label">conn</div>
         <div class="click-tip">Click On Name</div>
       </div>
@@ -151,9 +151,10 @@
   <script>
     function showMessage(person) {
       const messageBox = document.getElementById('messageBox');
+      const key = person.toLowerCase();
       let message = '';
 
-      switch (person) {
+      switch (key) {
         case 'pys':
           message = 'Big up pys';
           break;
@@ -163,6 +164,8 @@
         case 'liam':
           message = 'Take your shirt off mate';
           break;
+        default:
+          message = 'Unknown person';
       }
 
       messageBox.textContent = message;
