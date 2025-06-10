@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Display Text</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .profiles-container {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .profile-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    .profile-label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .click-tip {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #ffd700;
+      margin-top: -0.2rem;
+    }
+
+    .message {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      display: none;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Message to the Guys</h1>
+    <p class="subtitle">Click on each name for a message</p>
+
+    <div class="profiles-container">
+      <div class="profile-item">
+        <img src="https://pbs.twimg.com/profile_images/1636292115914170368/zK72ElyB_400x400.jpg"
+             alt="pys profile picture"
+             class="profile-img"
+             onclick="showMessage('Pys')" />
+        <div class="profile-label">pys</div>
+        <div class="click-tip">Click On Name</div>
+      </div>
+      <div class="profile-item">
+        <img src="https://pbs.twimg.com/profile_images/1687497425232015360/qpkICXmE_400x400.jpg"
+             alt="conn profile picture"
+             class="profile-img"
+             onclick="showMessage('Conn')" />
+        <div class="profile-label">conn</div>
+        <div class="click-tip">Click On Name</div>
+      </div>
+      <div class="profile-item">
+        <img src="https://imgproxy.playback.tv/jIFgUr3-QKkLrluP5gtDrYKlzBmgrVREk-XhVEAb0is/rs:fill-down:128:128:0:0/f:jpg/Z3M6Ly9wbGF5YmFjay1jZG4vdXNlci9hdmF0YXIvNGNiZjNkYjUtYWViNi00MDM5LWIwYjUtMWQ5MjE2NTBhMDli.jpg"
+             alt="liam profile picture"
+             class="profile-img"
+             onclick="showMessage('liam')" />
+        <div class="profile-label">Liam</div>
+        <div class="click-tip">Click On Name</div>
+      </div>
+    </div>
+
+    <div id="messageBox" class="message"></div>
+  </div>
+
+  <script>
+    function showMessage(person) {
+      const messageBox = document.getElementById('messageBox');
+      let message = '';
+
+      switch (person) {
+        case 'pys':
+          message = 'Big up pys';
+          break;
+        case 'conn':
+          message = 'WAssup unc';
+          break;
+        case 'liam':
+          message = 'Take your shirt off mate';
+          break;
+      }
+
+      messageBox.textContent = message;
+      messageBox.style.display = 'block';
+
+      setTimeout(() => {
+        messageBox.style.display = 'none';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
